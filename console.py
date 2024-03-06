@@ -3,6 +3,12 @@
 
 import cmd
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from models import storage
 
 
@@ -123,8 +129,8 @@ class HBNBCommand(cmd.Cmd):
                 return
             setattr(all_objs[obj_key], args[2], args[3].strip('"'))
             all_objs[obj_key].save()
-        except IndexError:
-            print("** instance id missing **")
+        except Exception:
+            pass
 
 
 if __name__ == '__main__':
