@@ -32,6 +32,8 @@ class FileStorage:
             json.dump({k: v.to_dict() for k, v in self.__objects.items()}, f)
 
     def reload(self):
+        """Deserializes the JSON file to __objects"""
+        from models.user import User
         try:
             with open(self.__file_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
