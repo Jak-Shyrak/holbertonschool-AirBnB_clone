@@ -9,6 +9,7 @@ import uuid
 from datetime import datetime
 from models import storage
 
+
 class BaseModel:
     """
     BaseModel class
@@ -21,7 +22,7 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key != '__class__':
                     if key in ['created_at', 'updated_at']:
-                        value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                        value = datetime.fromisoformat(value)
                     setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
@@ -33,8 +34,8 @@ class BaseModel:
         """
         Define the string representation of the object
         """
-        return ("[{}] ({}) {}".format(self.__class__.__name__,self.id, self.__dict__))
-
+        return ("[{}] ({}) {}".format(self.__class__.__name__,
+                                      self.id, self.__dict__))
 
     def save(self):
         """
