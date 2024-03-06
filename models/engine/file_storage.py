@@ -1,15 +1,13 @@
 #!/usr/bin/python3
-"""
-FileStorage class module
-
-
-"""
+"""FileStorage class module"""
 
 import json
-from models.base_model import BaseModel
 
 
 class FileStorage:
+    """
+    FileStorage class
+    """
     __file_path = "file.json"
     __objects = {}
 
