@@ -9,3 +9,14 @@ body {
     max-width: 1000px;
     margin: 30px auto;
 }
+
+.locations {
+    height: 100%;
+    width: 25%;
+    border-right: 1px #DDDDDD solid;
+}
+
+.amenities {
+    height: 100%;
+    width: 25%;
+}
